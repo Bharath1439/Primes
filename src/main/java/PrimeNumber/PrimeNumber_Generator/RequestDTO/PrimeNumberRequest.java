@@ -12,12 +12,15 @@ import lombok.NoArgsConstructor;
 public class PrimeNumberRequest {
 
 
+    @Column(nullable = false)
     private int min_Range;
 
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private int max_Range;
+
 
     private String algorithm;
 }

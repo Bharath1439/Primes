@@ -36,7 +36,7 @@ public class PrimeNumberServiceImpl implements PrimeNumberService {
         }
         PrimeNumber primeNumber = PrimeNumber.builder().email(primeNumberRequest.getEmail()).min_Range(primeNumberRequest.getMin_Range()).max_Range(primeNumberRequest.getMax_Range()).algorithm(primeNumberRequest.getAlgorithm()).build();
 
-//        try {
+
             if (primeNumber.getMin_Range() >= primeNumber.getMax_Range()) {
                 throw new PrimeNumberException("Please enter range properly");
             }
@@ -85,10 +85,7 @@ public class PrimeNumberServiceImpl implements PrimeNumberService {
             primeNumber.setPrimeNumberCount(list.size());
             StopWatch timeMeasure = new StopWatch();
             primeNumberRepository.save(primeNumber);
-//        }
-//        catch(Exception e) {
-//            throw new PrimeNumberException("Something Went Wrong");
-//        }
+
 
 
         return PrimeString;
@@ -182,9 +179,8 @@ public class PrimeNumberServiceImpl implements PrimeNumberService {
 
         List<PrimeNumber> primeNumberList=primeNumberRepository.findByEmail(email);
         if(primeNumberList==null || primeNumberList.size()==0){
-            throw new RuntimeException("There is No past records with this emailId");
+            throw new PrimeNumberException("There is No past records with this emailId");
         }
-
         PrimeNumber primeNumber=primeNumberList.get(primeNumberList.size()-1);
         List<Primes > primesList=primeNumber.getPrimesList();
         List<Integer> numbersList=new ArrayList<>();

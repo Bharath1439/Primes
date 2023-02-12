@@ -24,10 +24,6 @@ public class PrimeNumberController {
 
     @PostMapping("/generatePrimes")
     public ResponseEntity<String> SetPrimes(@RequestBody PrimeNumberRequest primeNumberRequest){
-           if(primeNumberRequest.getMax_Range()>1000000){
-               throw new PrimeNumberException("Please enter maximum Range below 1000000");
-           }
-
             String ans=null;
             ans = primeNumberService.SetPrimes(primeNumberRequest);
 

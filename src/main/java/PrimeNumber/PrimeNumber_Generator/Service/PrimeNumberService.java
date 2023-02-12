@@ -8,5 +8,5 @@ public interface PrimeNumberService{
 
      String SetPrimes(PrimeNumberRequest primeNumberRequest) throws Exception;
 
-     PrimeNumberResponse GetPrimes(String email);
+     PrimeNumberResponse GetPrimes(String email) throws  Exception;
 }
